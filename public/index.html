@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sistema de Controle Financeiro</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <h1>Sistema de Controle Financeiro</h1>
+
+    <!-- Botão de alternância de tema -->
+    <button class="button theme-toggle" onclick="toggleTheme()">Alternar Tema</button>
+
+    <!-- Linha 1: Adicionar categoria -->
+    <div class="row">
+      <input id="category-input" type="text" placeholder="Adicionar categoria">
+      <button class="button" onclick="addCategory()">Adicionar</button>
+      <select id="category-select"></select>
+      <button class="button" onclick="removeCategory()">Remover Categoria</button>
+    </div>
+
+    <!-- Linha 2: Adicionar transação -->
+    <div class="row">
+      <input id="description-input" type="text" placeholder="Descrição">
+      <input id="subcategory-input" type="text" placeholder="Sub. Categoria">
+      <input id="value-input" type="number" placeholder="Valor" min="0">
+      <select id="operation-select">
+        <option value="entrada">Entrada</option>
+        <option value="saida">Saída</option>
+      </select>
+      <input id="date-input" type="date">
+      <button class="button" onclick="addTransaction()">Adicionar</button>
+    </div>
+
+    <!-- Linha 3: Filtro de data -->
+    <div class="row">
+      <input id="start-date-input" type="date" placeholder="De">
+      <input id="end-date-input" type="date" placeholder="Até">
+      <button class="button" onclick="filterTransactions()">Filtrar</button>
+      <button class="button" onclick="toggleViewMode()">Dados Agrupados</button>
+    </div>
+    <!-- Resultados -->
+    <div class="results">
+      <div id="total-entrada" class="text-container">
+        <div>Entrada:</div>
+        <div class="variant"></div>
+      </div>
+      <div id="total-saida" class="text-container">
+        <div>Saída:</div>
+        <div class="variant"></div>
+      </div>
+      <div id="resumo" class="text-container">
+        <div>Resumo:</div>
+        <div class="variant"></div>
+      </div>
+    </div>
+    <!-- Tabela de transações -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr id="table-header">
+            <th id="description-header">Descrição</th>
+            <th>Valor</th>
+            <th>Categoria</th>
+            <th>Sub. Categoria</th>
+            <th>Operação</th>
+            <th id="date-header">Data</th>
+            <th id="remove-header">Remover</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
